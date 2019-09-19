@@ -19,6 +19,7 @@ export default class Hello extends React.PureComponent<Props, object> {
             <div className="hello">
                 <div className="greeting">
                     Hello {name + getExclam(enthusiasmLevel)}
+                    有咩有想好 要不要进入编程的世界
                 </div>
             </div>
         );
