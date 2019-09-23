@@ -1,30 +1,32 @@
 import React from 'react';
-import { Router, Route, Switch } from "dva/router";
+import { Router, Route, Switch, routerRedux } from "dva/router";
 import { config } from './utils';
-
+import taos from './routes/taos';
 import dynamic from 'dva/dynamic';
 
+const { ConnectedRouter } = routerRedux;
 const { menuGlobal } = config;
-
 function RouterConfig({ history, app}) {
     return (
-        <Router history={history}>
-            <Switch>
-                {
-                    menuGlobal.map(({path, ...dynamic}, index)=>(
-                        <Route
-                            key={index}
-                            path={path}
-                            exact
-                            component={dynamic({
-                                app,
-                                ...dynamic
-                            })}
-                        />
-                    ))
-                }
-            </Switch>
-        </Router>
+        <ConnectedRouter history={history}>
+            {/*<Switch>*/}
+            {/*    {*/}
+            {/*        menuGlobal.map(({path,name, component, ...dynamics})=> {*/}
+            {/*            return (*/}
+            {/*              <Route*/}
+            {/*                key={name}*/}
+            {/*                path={path}*/}
+            {/*                exact*/}
+            {/*                component={component}*/}
+            {/*              />*/}
+            {/*            );*/}
+            {/*          })*/}
+            {/*    }*/}
+            {/*</Switch>*/}
+          <Switch >
+            <Route path="/" component={taos} />
+          </Switch>
+        </ConnectedRouter>
     );
 }
 export default RouterConfig;

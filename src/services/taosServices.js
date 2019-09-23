@@ -1,8 +1,8 @@
-import request from '../utils/request';
+import requests from '../utils/request';
 import config from '../config';
 
 export async function fetchDatabaseInfo(params) {
-  return request(`${config.domain}`, {
+  return requests(`${config.domain}`, {
     method: 'GET'
   })
 

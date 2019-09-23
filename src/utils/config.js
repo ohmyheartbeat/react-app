@@ -2,7 +2,8 @@
 
 const menuGlobal = [
     {
-        path: '/',
+        path: '/index',
+        name: 'index',
         models: () =>[import('../models/taosModel')],
         component: () => import('../routes/taos'),
     }

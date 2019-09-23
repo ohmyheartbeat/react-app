@@ -3,6 +3,7 @@ import dva from 'dva';
 // import ReactDOM from 'react-dom';
 import './index.less';
 import createHistory from 'history/createBrowserHistory';
+import RouterConfig from './router';
 // import App from './App';
 // import * as serviceWorker from './serviceWorker';
 //
@@ -18,7 +19,7 @@ const app = dva({
 });
 // 2.插件
 // 3.Model
-app.model(require('./models/app').default);
+app.model(require('./models/taosModel').default);
 // 4.Router
 app.router(require('./router').default);
 // 5.启动

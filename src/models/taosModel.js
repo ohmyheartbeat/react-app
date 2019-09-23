@@ -1,14 +1,18 @@
 import { fetchDatabaseInfo } from '../services/taosServices';
 
 export default {
-  namespace: 'tasoModel',
+  namespace: 'taosModel',
   state: {
-    databaseInfo: [], //数据库信息
+    databaseInfo: [
+      {
+        'db_name': '测试数据库',
+      }
+    ], //数据库信息
   },
-  effects: [
-    {
+  effects: {
       *fetchDatabaseInfo({payload}, {call, put}){
         const res = yield call(fetchDatabaseInfo, payload);
+        console.log(res);
         if (res){
           yield put({
             type: 'updateState',
@@ -18,8 +22,7 @@ export default {
           })
         }
       }
-    }
-  ],
+      },
   reducers: {
     updateState(state, {payload}) {
       return {

@@ -15,9 +15,13 @@ function checkStatus(response) {
   throw error;
 }
 
-export default function request(url, options) {
-  return fetch(url, { ...options })
+export default function requests(url, options) {
+  const headers= {
+    'Accept': 'application/x-www-form-urlencoded',
+    'mode': 'no-cors'
+  };
+  return fetch(url, { ...options, ...headers })
     .then(checkStatus)
     .then(parseJSON)
-    .then((data)=>({data}));
+    .then(data=>({data}));
 }
