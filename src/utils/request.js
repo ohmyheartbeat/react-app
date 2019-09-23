@@ -23,5 +23,8 @@ export default function requests(url, options) {
   return fetch(url, { ...options, ...headers })
     .then(checkStatus)
     .then(parseJSON)
-    .then(data=>({data}));
+    .then(data=>{
+      console.log(data);
+      return data;
+    });
 }
